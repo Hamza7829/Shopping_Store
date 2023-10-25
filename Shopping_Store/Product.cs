@@ -4,7 +4,9 @@ namespace Shopping_Store
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Validation;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("Product")]
     public partial class Product
@@ -26,6 +28,8 @@ namespace Shopping_Store
 
         [StringLength(10)]
         public string Pro_Picture { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase Pro_pic { get; set; } 
 
         public virtual Catagory Catagory { get; set; }
     }

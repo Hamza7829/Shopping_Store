@@ -9,10 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-active">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Catagory Name
+            @*@Html.DisplayNameFor(model => model.Name)*@
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CatagoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CatagoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CatagoryId })
+            <a class="glyphicon glyphicon-edit" href="@Url.Action("Edit","Catagories", new { id = item.CatagoryId})"></a>
+            <a class="glyphicon glyphicon-book" href="@Url.Action("Details","Catagories", new { id = item.CatagoryId })"></a>
+            <a class="glyphicon glyphicon-trash" href="@Url.Action("Delete","Catagories", new { id = item.CatagoryId})"></a>
         </td>
     </tr>
 }

@@ -16,7 +16,7 @@ namespace Shopping_Store
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "IndexCustomer", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "IndexAdmin", id = UrlParameter.Optional }
             );
         }
     }

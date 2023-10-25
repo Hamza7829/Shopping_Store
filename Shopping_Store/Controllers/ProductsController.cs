@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Shopping_Store;
-
+using System.Data.Entity.Validation;
 namespace Shopping_Store.Controllers
 {
     public class ProductsController : Controller
@@ -47,14 +47,26 @@ namespace Shopping_Store.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,Name,Description,ProductSale,ProductPurchase,fk_catagory,Pro_Picture")] Product product)
+         public ActionResult Create(Product product)
         {
+           
             if (ModelState.IsValid)
             {
+                product.Pro_pic.SaveAs(Server.MapPath("~/photo/" + product.Pro_pic.FileName));
+                product.Pro_Picture = "~/photo/" + product.Pro_pic.FileName;
                 db.Products.Add(product);
-                db.SaveChanges();
+                
+                
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    Console.WriteLine(e);
+                }
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.fk_catagory = new SelectList(db.Catagories, "CatagoryId", "Name", product.fk_catagory);

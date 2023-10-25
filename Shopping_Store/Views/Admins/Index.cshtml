@@ -9,22 +9,22 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-active">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+           Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            Address
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone)
+           Phone
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+           Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password)
+           Password
         </th>
         <th></th>
     </tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AdminId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AdminId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AdminId })
+            <a class="glyphicon glyphicon-edit" href="@Url.Action("Edit","Admins", new { id = item.AdminId })"></a>|
+            <a class="glyphicon glyphicon-book" href="@Url.Action("Details","Admins", new { id = item.AdminId})"></a>|
+            <a class="glyphicon glyphicon-trash" href="@Url.Action("Delete","Admins", new { id = item.AdminId })"></a>
         </td>
     </tr>
 }

@@ -43,16 +43,16 @@ font-size: 16px;"> Last access : @DateTime.Now &nbsp; <a href="#" class="btn btn
 
 
             <li>
-                <a class="active-menu" href="index.html"><i class="fa fa-dashboard fa-3x"></i> Manage Admin</a>
+                <a class="active-menu" href="@Url.Action("IndexAdmin","Home")"><i class="fa fa-dashboard fa-3x"></i>Dashbord</a>
             </li>
             <li>
-                <a href="ui.html"><i class="fa fa-desktop fa-3x"></i>Manage Catagory</a>
+                <a href="@Url.Action("Index","Admins")"><i class="fa fa-desktop fa-3x"></i>Manage Admin</a>
             </li>
             <li>
-                <a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Manage Product</a>
+                <a href="@Url.Action("Index","Catagories")"><i class="fa fa-qrcode fa-3x"></i> Manage Catagory</a>
             </li>
             <li>
-                <a href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Manage List</a>
+                <a href="@Url.Action("Index","Products")"><i class="fa fa-bar-chart-o fa-3x"></i> Manage Poducts</a>
             </li>
 
 
